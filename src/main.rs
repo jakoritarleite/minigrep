@@ -4,9 +4,7 @@ use std::process;
 use minigrep::Config;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-
-    let config = Config::new(&args)
+    let config = Config::new(env::args())
         .unwrap_or_else(|error| {
             eprintln!("Problem parsing arguments: {}", error);
             process::exit(1);
